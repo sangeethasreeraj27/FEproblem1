@@ -1,0 +1,14 @@
+.header-div {
+  height: 100px;
+  width: 100%;
+  line-height: 100px;
+  padding: 0 5%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: var(--light-blue);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2),
+    0 0 10px 0 rgba(0, 0, 0, .35);
+  z-index: 1000;
+}

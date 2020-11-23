@@ -1,0 +1,15 @@
+<div class="time-div">Total Time Taken: {{totalTime}}</div>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+  <div fxFlex *ngFor="let item of [0,1,2,3]">
+    <app-selector-form [planets]='planets' [vehicles]='vehicles' [reset]="reset"
+      (selectedDestination)='selectedDestination($event,item)'>
+    </app-selector-form>
+  </div>
+</div>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="start stretch" fxLayoutGap="20px"
+  fxLayoutAlign="center center">
+  <button *ngIf="totalTime" class="btn" (click)="findFalcon()" mat-raised-button color="primary">Find Falcone</button>
+  <button class="btn" (click)="resetGroup()" mat-raised-button color="primary">Reset</button>
+
+</div>

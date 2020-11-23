@@ -1,0 +1,15 @@
+<div *ngIf="result?.status =='success'">
+  <p class="title"> Success! Congrations on finding falcon. King Shan is mightly pleased.</p>
+  <p class="sub-title">Time Taken: {{result.timeTaken}}</p>
+  <p class="sub-title">Planet Found: {{result.planet_name}}</p>
+</div>
+
+<div *ngIf="result?.status !='success'">
+  <p class="title"> OOPS! Falcon not found</p>
+</div>
+
+<div style="text-align: center;">
+  <button class="btn" [routerLink]="['/find']" routerLinkActive="router-link-active" mat-raised-button
+    color="primary">Start again</button>
+
+</div>

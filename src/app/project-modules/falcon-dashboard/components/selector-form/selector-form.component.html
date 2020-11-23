@@ -1,0 +1,37 @@
+<mat-card style="min-height: 380px;">
+  <form [formGroup]="formGroup">
+
+    <div>
+      <mat-form-field style="width: 100%;">
+        <input type="text" placeholder="Choose planet" matInput formControlName="planet" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option (click)="selectPlanet(planet)" *ngFor="let planet of filteredOptions | async"
+            [value]="planet.name">
+            {{planet.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <div *ngIf="formGroup.value.planet">
+        <p>Selected planet: {{selectedPlanet?.name}}</p>
+        <p> Total distance: {{selectedPlanet?.distance}}</p>
+        <p *ngIf="formGroup.value.timeTaken">Time taken to travel: {{formGroup.value.timeTaken}}</p>
+
+      </div>
+    </div>
+
+
+    <div *ngIf="formGroup.value.planet">
+      <label>Choose vehicle</label>
+      <mat-radio-group class="vehicle-radio-group">
+        <mat-radio-button (click)="selectVehicle(vehicle)" class="vehicle-radio-button"
+          *ngFor="let vehicle of availableVehicles" [value]="vehicle.name">
+          {{vehicle.name}} ({{vehicle.total_no}})
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+
+
+  </form>
+</mat-card>
